@@ -1,1 +1,538 @@
-{\rtf1}
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Magra:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@700&family=Red+Hat+Text:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aleo:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aleo:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aleo&display=swap');
+*{padding: 0;margin: 0;border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+a,a:visited{text-decoration: none; color:white ;}
+html {scroll-behavior: smooth;}
+
+body {
+    background-color: #000;
+    width: 1440px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.main-travel {
+    background-color: #FFF;
+}
+.header {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-image: url(../image/garrett-parker-DlkF4-dbCOU-unsplash\ 1.jpg);
+    height: 765px;
+    z-index: 1;
+}
+.logo-and-login {
+    display: flex;
+    background: rgba(242, 120, 92, 0.7);
+    box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
+      
+}
+.header img {
+    height: 30px;
+    width: 30px;
+    margin: 26px 6px 0px 120px;
+}
+.header h2 {
+    margin: 25px 165px 0px 0;
+    font-family: 'Magra', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 39px;
+    color: #FFF;
+}
+.name-of-site {
+    display: flex;
+}
+.name-of-site h2 {
+    display: inline-block;
+}
+.navigation {
+    display: flex;
+    font-family: 'Red Hat Text', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    color: #fff;  
+}
+.navigation ul {
+    display: inline-flex;
+    list-style-type: none;
+    color: #fff;
+}
+.navigation ul :hover {
+    transition: 1s;
+    color: #0D606f;
+}
+.navigation li:nth-child(1) {
+    margin: 35px 42px 0px 0;
+}
+.navigation li:nth-child(2) {
+    margin: 35px 42px 0px 2px;
+}
+.navigation li:nth-child(3) {
+    margin: 35px 42px 0px 0;
+    color: #fff;
+}
+.navigation li:nth-child(4) {
+    margin: 35px 0px 0px 0;
+}
+.login-button {
+    display: flex;
+    margin: 25px 120px 26px 196px;
+    padding: 10px 30px;
+    font-family: 'Red Hat Text', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    color: #FFFFFF;
+    border-radius: 10px;
+    background-color: #0D606F;
+    cursor: grab;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 3px rgba(13, 96, 111, 0.16);
+}
+.preview {
+    position: relative;
+    z-index: 1;
+    margin: 30px 428px 0 120px;
+    color: #fff;
+}
+.preview h1 {
+    margin: 0;
+    font-family: 'Aleo', serif;
+    font-size: 80px;
+    line-height: 96px;
+}
+.preview :nth-child(2){
+    margin: 31px 0 0 1px;
+    font-family: 'Aleo', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+}
+.search {
+    margin: 46px 0 0 0;
+    background:rgba(255,255,255,0.7);
+    border-radius: 16px;
+}
+.search :nth-child(1) {
+    margin: 30px 320px 31px 42px;
+    display: inline-block;
+    font-family: 'Aleo', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #F2785C;  
+}
+.search :nth-child(2) {
+    margin: 18px 0 0 0;
+    padding: 13px 32.5px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Red Hat Text', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 34px;
+    color: #fff;
+    width: 228px;
+    height: 59px;
+    border-radius: 10px;
+    background-color: #0D606F;
+    cursor: grab;
+}
+.background-lake {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 0;
+}
+.steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.steps h2 {
+    margin: 80px 0 40px;
+    font-family: 'Red Hat Text', sans-serif;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 53px;
+    color: #F2785C;
+}
+
+.steps ul {
+    display: flex;
+    list-style-type: none;
+    width: 100%;
+}
+.images.one{
+    margin-left: 204px;
+}
+.images.two{
+    margin-left: 295px;
+}
+.images.three{
+    margin-left: 270px;
+}
+.span-one{
+    display: inline-block;
+    margin: 31px 0 0 131px;
+    font-family:'Aleo',serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #0D606F;
+}
+.span-two{
+    display: inline-block;
+    margin: 30px 0 0 231px;
+    font-family:'Aleo',serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #0D606F;
+}
+.span-three{
+    display: inline-block;
+    margin: 30px 0 0 160px;
+    font-family:'Aleo',serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #0D606F;
+}
+.images { 
+    background-color: #F2785C;
+    border-radius: 16px;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.h2-destination{
+    margin-top: 95px;
+    text-align: center;
+    font-family: 'Red Hat Text', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 53px;
+    color: #F2785C;
+}
+.destination {
+    overflow: hidden;
+    margin-top: 44px;
+    display: flex;
+    justify-content: center;
+}
+
+.destination div {
+    height: 800px;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 42px;
+    border-radius: 16px;
+    color: #FFFFFF;
+}
+.dania-image {
+    min-width: 800px;
+    background: url(../image/rifs.jpg) no-repeat;
+    background-size: 800px 800px;
+}
+.dania-text {
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.japan-image {
+    margin-left: 60px;
+    min-width: 800px;
+    background: url(../image/gate.jpg);
+    background-size: 800px 800px;
+}
+.japan-text {
+    margin: 0 0 37px 14px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+}
+.brige-image {
+    margin-left: 60px;
+    min-width: 800px;
+    background: url(../image/bridge.jpg);
+    background-size: 800px 800px;
+}
+
+.brige-text {
+    margin: 0 0 37px 14px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+}
+.three-point {
+    display: flex;
+    justify-content: center;
+}
+.three-point div {
+    margin: 24px 5px;
+    height: 20px;
+    width: 20px;
+    background-color: rgba(242, 120, 92, 0.5);
+    border-radius: 50%;
+}
+.three-point :nth-child(2) {
+    background-color: #F2785C;
+}
+.find-more {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+}
+.find-more button {
+    width: 228px;
+    height: 59px;
+    padding: 0px 0 0 48px; 
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    color: #FFFFFF;
+    background: url(../image/arrow.svg) no-repeat #0D606F;
+    background-position: 30px 19px;
+    box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+    border-radius: 10px;
+    cursor: grab;
+}
+.travel-stories {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Red Hat Text', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 53px;
+    color: #F2785C;
+}
+.stories {
+    position:relative;
+    z-index: 0;
+    margin-top: 42px;
+    width: 1440px;
+    height: 1330px;
+    background: url(../image/ship_back.jpg);
+}
+.stories span {
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 600;
+    border-bottom: 1px solid #0D606F;
+    line-height: 0px;
+}
+.backgroun-whitening {
+    position: relative;
+    z-index: 1;
+    width: 1440px;
+    height: 1270px;
+    background-color:  rgba(255, 255, 255, 0.7);
+}
+.lake-area {
+    display: flex;
+}
+.picter-lake {
+    margin: 35px 38px 20px 115px;
+    width: 410px;
+    height: 260px;
+    background: url(../image/watter_ship.jpg) no-repeat;
+    background-size: cover;
+    filter: drop-shadow(0px 4px 4px #0D606F);
+    border-radius: 26px;
+}
+.picter-lake-text {
+    margin: 40px 120px 25px 0;
+    width: 760px;
+    height: 250px;
+}
+.picter-lake-text h2 {
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+    color: #0D606F;
+}
+.picter-lake-text p {
+    margin-top: 22px;
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #0D606F;
+}
+.canyon-area {
+    display: flex;
+}
+.picter-canyon {
+    margin: 4px 40px 20px 120px;
+    width: 400px;
+    height: 250px;
+    background: url(..//image/road.jpg) no-repeat;
+    background-size: cover;
+    filter: drop-shadow(0px 4px 4px #0D606F);
+    border-radius: 16px;
+}
+.picter-canyon-text {
+    margin: 6px 0px 20px 1px;
+    width: 760px;
+    height: 250px;
+}
+.picter-canyon-text h2 {
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+    color: #0D606F;
+}
+.picter-canyon-text p {
+    margin-top: 22px;
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #0D606F;
+}
+.mount-area {
+    display: flex;
+}
+.picter-mount {
+    margin: 8px 40px 20px 122px;
+    width: 400px;
+    height: 250px;
+    background: url(../image/mount.jpg) no-repeat;
+    background-size: cover;
+    filter: drop-shadow(0px 4px 4px #0D606F);
+    border-radius: 16px;
+}
+.picter-mount-text {
+    margin: 10px 120px 25px 0px;
+    width: 760px;
+    height: 250px;
+}
+.picter-mount-text h2 {
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+    color: #0D606F;
+}
+.picter-mount-text p {
+    margin-top: 23px;
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #0D606F;
+}
+.bus-area {
+    display: flex;
+}
+.picter-bus {
+    margin: 0px 38px 20px 115px;
+    width: 410px;
+    height: 260px;
+    background: url(../image/yellow_bus.jpg) no-repeat;
+    background-size: cover;
+    filter: drop-shadow(0px 4px 4px #0D606F);
+    border-radius: 30px;
+}
+.picter-bus-text {
+    margin: 5px 120px 25px 0px;
+    width: 760px;
+    height: 250px;
+}
+.picter-bus-text h2 {
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+    color: #0D606F;
+}
+.picter-bus-text p {
+    margin-top: 23px;
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #0D606F;
+}
+.see-more {
+    margin-top: 12px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+}
+.see-more button {
+    width: 228px;
+    height: 59px;
+    padding: 0px 0 0 48px; 
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    color: #FFFFFF;
+    background: url(../image/arrow.svg) no-repeat #0D606F;
+    background-position: 30px 19px;
+    box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+    border-radius: 10px;
+    cursor: grab;
+}
+.travel-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.travel-footer ul {
+    margin-top: 6%;
+    display: flex;
+    list-style-type: none;
+}
+.block2 {
+    margin-left: 65px;
+    font-family: 'Red Hat Text', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    color: #FFFFFF;
+}
+.block3 ul{
+    margin-left: 20%;
+    height: 50px;
+    width: 160px;
+    display: flex;
+    justify-content: space-around;
+}
