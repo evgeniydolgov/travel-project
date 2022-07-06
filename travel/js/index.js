@@ -1,1 +1,11 @@
-console.log ('1.верска валидная +10\n2.верстка семантическая +20\n3.соответсвует макету +48 \n4.требования css +12 \n5.интерактивность +20 \nитого 110 баллов')
+let header__burger = document.querySelector('.header__burger');
+let header_menu = document.querySelector('.header');
+let back = document.querySelector('body');
+let header__list = document.querySelector('.header__list');
+
+header__burger.onclick = function() {
+    header__burger.classList.toggle('active');
+    header_menu.classList.toggle('active');
+    back.classList.toggle('lock');
+}
+
