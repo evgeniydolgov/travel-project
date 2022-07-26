@@ -7,6 +7,7 @@
     <link type="image/x-icon" href="./image/favicon.ico" rel="shortcut icon">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style_popup.css">
     <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,400;0,700;1,400;1,700&family=Magra:wght@700&family=Red+Hat+Text:wght@400;500&display=swap" rel="stylesheet">
         <title>Travel#1</title>
 </head>
@@ -24,11 +25,11 @@
                         <li class="menu__item"><a href="#plan_your" class="menu__link">Plan Your Trip</a></li>
                         <li class="menu__item"><a href="#DESTIN" class="menu__link">Destinations</a></li>
                         <li class="menu__item item__end"><a href="#travel_story" class="menu__link">Travel Stories</a></li>
-                        <li class="menu__item item__390"><a href="#" class="menu__link">Account</a></li>
+                        <li class="menu__item item__390"><a href="#popup" class="menu__link popup-link">Account</a></li>
                         <li class="menu__item item__390"><a href="#foot" class="menu__link">Social Media</a></li>
                     </ul>
                 </nav>
-                <button class="header__button">Login</button>
+                <a href="#popup" class="header__button_a popup-link"><button class="header__button">  Login</button></a>
             </div>
         </header>
         <main class="page">
@@ -42,7 +43,7 @@
                         <h1 class="planning__h1"><a id="how_it" ></a> Explore the beauty of the World</h1>
                         <div class="planning__text">Receive personalized recommendations for countries, hotels, activities and more</div>
                         <div class="planning__input">
-                            <div class="input">What would you like to do?</div>
+                            <input type="text" placeholder="What would you like to do?" class="input" />
                             <button class="search__button">Start Planning</button>
                         </div>
                     </div>
@@ -73,15 +74,35 @@
             <section class="destinations">
                 <div class="destination__containe container">
                     <h2 class="destination__h2"> <a id="DESTIN" ></a> POPULAR DESTINATIONS</h2>
-                    <div class="destination__slides">
-                        <div class="destination__img spain"><div class="destination__text">SPAIN</div></div>
-                        <div class="destination__img japan"><div class="destination__text">JAPAN</div></div>
-                        <div class="destination__img usa"><div class="destination__text">USA</div></div>
+                    <div class="slaid_container">
+                        <div class="slider">
+                            <div class="slider-line">
+                                <img src="./image/Usa_img.jpg" alt="Usa_img">
+                                <img src="./image/spain_img.jpg" alt="spain_img">
+                                <img src="./image/japan_img.jpg" alt="japan_img">
+                                <img src="./image/Usa_img.jpg" alt="Usa_img">
+                                <img src="./image/spain_img.jpg" alt="spain_img">
+                            </div>
+                            <div class="container-mini">
+                                <div class="slider-mini">
+                                    <img src="./image/Rectangle 26.jpg" alt="spain_mini">
+                                    <img src="./image/Rectangle 34.jpg" alt="japan_mini">
+                                    <img src="./image/Rectangle 35.jpg" alt="USA_mini">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="slider-prev"></button>
+                        <button class="slider-next"></button>
+                        <button class="slider-prev__little"></button>
+                        <button class="slider-next__little"></button>
                     </div>
                     <div class="destination__radio">
-                        <div class="round"></div>
-                        <div class="round"></div>
-                        <div class="round"></div>
+                        <input type="radio" name="orange-button" id="check_one">
+                        <label for="check_one"></label>
+                        <input type="radio" name="orange-button" id="check_two">
+                        <label for="check_two"></label>
+                        <input type="radio" name="orange-button" id="check_three">
+                        <label for="check_three"></label>
                     </div>
                     <button class="destination__button">Find More</button>
                 </div>
@@ -126,7 +147,40 @@
                 
             </section>
         </main>
+        <div id="popup" class="popup">
+            <div class="popap__body">
+                <div class="popup__content">
+                    <h2>Log in to your account</h2>
+                    <div class="facebook_popup"> <img src="./image/fasebook_login.svg" alt="Facebook"> Sign In with Facebook</div>
+                    <div class="google_class"> <img src="./image/logo_googleg 48dp.svg" alt="google_logo"> Sign In with Google</div>
+                    <div class="or_line"> <div class="f_line"></div> <p>or</p> <div class="s_line"></div> </div>
+                    <div class ='popup-one__email'>E-mail</div>
+                    <div class="popup-one__email__input"><input type="email"></div>
+                    <div class ='popup-one__password'>Password</div>
+                    <div class="popup-one__password__input" ><input type="password"></div>
+                    <div class ='popup-one__sing'>Sign In</div>
+                    <div class="your__pass">Forgot Your Password?</div>
+                    <div class="popup-one__border"></div>
+                    <div class="popup-one__reg">Don’t have an account?<a href="#popup_2" class="popup-link">Register</a></div>
+                </div>
+            </div>
+        </div>
+        <div id="popup_2" class="popup p_2">
+            <div class="popap__body b_2">
+                <div class="popup__content c_2">
+                    <h2>Create account</h2>
+                    <div class="popup-one__email email_two">E-mail</div>
+                    <div class="popup-one__email__input popup_two"><input type="email"></div>
+                    <div class="popup-one__password">Password</div>
+                    <div class="popup-one__password__input popup_two"><input type="password"></div>
+                    <div class="popup-one__sing popup_two">Sign Up</div>
+                    <div class="popup-one__border"></div>
+                    <div class="popup-one__reg a_two">Already have an account?<a href="#popup" class="popup-link"> Log in</a></div>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="./js/js_popup.js"></script>
     <script src="./js/index.js"></script>
 </body>
 </html>
