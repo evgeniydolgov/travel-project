@@ -117,7 +117,7 @@ async function getWeather() {
     temperature.textContent = `${Math.floor(data.main.temp)}°C`;
     weatherDescription.textContent = data.weather[0].description;
     wind.textContent = `Wind speed: ${Math.floor(data.wind.speed)} m/s`;
-    humidity.textContent = `Humidity: ${data.main.humidity} %`
+    humidity.textContent = `Humidity: ${data.main.humidity} %`;
   }
   getWeather();
   city.addEventListener('change',() => {
