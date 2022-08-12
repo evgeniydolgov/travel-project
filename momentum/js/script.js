@@ -19,6 +19,11 @@ const buttonRefresh = document.querySelector('.change-quote');
 const nameSong = document.querySelector('.name-song');
 const timeSong = document.querySelector('.time_song');
 
+let hash = window.location.hash;
+hash = hash.substr(1);
+console.log(hash);
+if (hash != 'ru' && hash != 'en') {hash = 'en'}
+
 prevButton.addEventListener('click', function getSlideNext() {
     randomNum --;
     if (randomNum < 1) randomNum = '20';
@@ -138,17 +143,19 @@ function getLocalStorageCity() {
 window.addEventListener('load', getLocalStorageCity);
 
 
-async function getQuotes() {  
+async function getQuotes(hash) {  
     const quotes = './js/data.json';
     const res = await fetch(quotes);
     const data = await res.json(); 
     let randomQuote = (Math.floor(Math.random() * (8 - 1 + 1)) + 1);
-    quote.textContent = '"' + data[randomQuote - 1].quote + '"';
-    author.textContent = '"' + data[randomQuote - 1].source + '"';
+    quote.textContent = '"' + data[randomQuote - 1].quote[hash] + '"';
+    author.textContent = '"' + data[randomQuote - 1].source[hash] + '"';
 }
 
-getQuotes();
-buttonRefresh.addEventListener('click',getQuotes);
+getQuotes(hash);
+buttonRefresh.addEventListener('click', function () {
+    getQuotes(hash);
+});
 
 /*-----------------------------------------audio-------------------------------------------------------*/
 
@@ -298,8 +305,136 @@ volumeIcon.addEventListener('click', function(){
         audio.volume = 0;
         volumeOn = false;
     }else if (!volumeOn) {
-        audio.volume = 0.5;
+        audio.volume = 0.7;
         volumeOn = true;
     }
 })
 
+/*--------------------------------------------APi-images--------------------------------------------*/
+
+async function getLinkToImage() {
+    const url = 'https://api.unsplash.com/photos/random?query=morning&client_id=VoA_JV_f9kR61CeHI8qvq9mbkuKNaOhOiAnDATgKtEU';
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log(data.urls.regular)
+    return [
+        body.style.backgroundImage = `url(${data.urls.regular})`,
+        body.style.backgroundRepeat = 'no-repeat',
+        body.style.backgroundSize = '100% 100%'
+    ];
+   }
+
+// getLinkToImage();
+
+
+async function getLinkToImage2 (){
+    const url = 'https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=4405beba23fb8050383e9cef97b67396&tags=nature&extras=url_l&format=json&nojsoncallback=1'
+    const res = await fetch (url);
+    const data = await res.json();
+    let x = data.photos.photo[Math.floor(Math.random() * (data.photos.photo.length - 1)) + 1].url_l;
+    return [
+        body.style.backgroundImage = `url(${x})`,
+        body.style.backgroundRepeat = 'no-repeat',
+        body.style.backgroundSize = '100% 100%'
+    ];
+}   
+
+// getLinkToImage2 ();
+
+/*--------------------------------------------------------------setting-menu----------------------------------------------------------*/
+
+const setting = document.querySelector('.setting');
+const start_menu = document.querySelector('.start_menu');
+const language_button = document.querySelector('.start_menu li:nth-child(1)');
+const picter_button = document.querySelector('.start_menu li:nth-child(2)');
+const type_button = document.querySelector('.start_menu li:nth-child(3)');
+const delete_button = document.querySelector('.start_menu li:nth-child(4)');
+const language_menu = document.querySelector('.language_menu');
+const languageRu = document.querySelector('.language_menu li:nth-child(1)');
+console.log(languageRu);
+const languageEn = document.querySelector('.language_menu li:nth-child(2)');
+console.log(languageEn);
+const languageMenuBack = document.querySelector('.language_menu li:nth-child(3)');
+const picter_menu = document.querySelector('.picter_menu');
+const picter_menuBack = document.querySelector('.picter_menu li:nth-child(4)');
+const type_menu = document.querySelector('.type_menu');
+const type_menuBack = document.querySelector('.type_menu li:nth-child(4)');
+const type_delete = document.querySelector('.type_delete');
+const delete_menuBack = document.querySelector('.type_delete li:nth-child(7)');
+let typeOfSetting = false;
+
+setting.addEventListener('click', function () {
+    if (!typeOfSetting) {
+        start_menu.style.display = 'block';
+        language_menu.style.display = 'none';
+        typeOfSetting = true;
+    } else if (typeOfSetting) {
+        start_menu.style.display = 'none';
+        language_menu.style.display = 'none';
+        typeOfSetting = false;
+        picter_menu.style.display = 'none';
+        type_delete.style.display = 'none';
+        type_menu.style.display = 'none';
+    }
+})
+
+language_button.addEventListener('click', function () {
+    start_menu.style.display = 'none';
+    language_menu.style.display = 'block';
+})
+
+languageMenuBack.addEventListener('click', function () {
+    start_menu.style.display = 'block';
+    language_menu.style.display = 'none';
+})
+
+picter_button.addEventListener('click', function (){
+    picter_menu.style.display = 'block';
+    start_menu.style.display = 'none';
+})
+
+picter_menuBack.addEventListener('click', function () {
+    start_menu.style.display = 'block';
+    picter_menu.style.display = 'none';
+})
+
+type_button.addEventListener('click', function (){
+    type_menu.style.display = 'block';
+    start_menu.style.display = 'none';
+})
+
+type_menuBack.addEventListener('click', function (){
+    type_menu.style.display = 'none';
+    start_menu.style.display = 'block';
+})
+
+delete_button.addEventListener('click', function (){
+    type_delete.style.display = 'block';
+    start_menu.style.display = 'none';
+})
+
+delete_menuBack.addEventListener('click', function (){
+    type_delete.style.display = 'none';
+    start_menu.style.display = 'block';
+})
+
+function changeRuLanguage () {
+    location.href = window.location.pathname + '#' + 'ru';
+    location.reload();
+}
+
+function changeEnLanguage () {
+    location.href = window.location.pathname + '#' + 'en';
+    location.reload();
+}
+
+languageRu.addEventListener('click', changeRuLanguage);
+languageEn.addEventListener('click', changeEnLanguage);
+
+function changeLanguage () {
+    let hash = window.location.hash;
+    hash = hash.substr(1);
+    console.log(hash);
+    return hash;
+}
+changeLanguage();

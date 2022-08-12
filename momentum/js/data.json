@@ -1,34 +1,82 @@
 [
 	{ 
-		"quote" : "The only sin is ignorance", 
-		"source" : "Christopher Marlowe" 
+		"quote" : {
+			"en" : "The only sin is ignorance",
+			"ru" : "Не совершай классическую ошибку всех умников: не думай, что нет людей умнее тебя."
+		}, 
+		"source" : {
+			"en" : "Christopher Marlowe",
+			"ru" : "Карл Ван Лун"
+		} 
 	},
 	{
-		"quote" : "A man is his own easiest dupe, for what he wishes to be true he generally believes to be true", 
-		"source" : "Demosthenes"
+		"quote" : {
+			"en" : "A man is his own easiest dupe, for what he wishes to be true he generally believes to be true", 
+			"ru" : "Все мы гении. Но если вы будете судить рыбу по её способности взбираться на дерево, она проживёт всю жизнь, считая себя дурой."
+		},
+		"source" : {
+			"en" : "Demosthenes",
+			"ru" : "Альберт Эйнштейн"
+		}
 	},
 	{
-		"quote" : "A lie can travel halfway around the world while the truth is putting on its shoes", 
-		"source" : "Mark Twain"
+		"quote" : {
+			"en" : "Life isn't about finding yourself. Life is about creating yourself.", 
+			"ru" : "Не бывает безвыходных ситуаций. Бывают ситуации, выход из которых тебя не устраивает."
+		},
+		"source" : {
+			"en" : "George Bernard Shaw",
+			"ru" : "Нара Шикамару"
+		}
 	},
 	{
-		"quote" : "Great minds discuss ideas; average minds discuss events; small minds discuss people", 
-		"source" : "Eleanor Roosevelt"
+		"quote" : {
+			"en" : "It is better to keep your mouth closed and let people think you are a fool than to open it and remove all doubt.", 
+			"ru" : "Лучше молчать и показаться дураком, чем заговорить и развеять все сомнения."
+		},
+		"source" : {
+			"en" : "Mark Twain",
+			"ru" : "Марк Твен"
+		}
 	},
 	{
-		"quote" : "If you have a garden and a library, you have everything you need", 
-		"source" : "Marcus Tullius Cicero"
+		"quote" : {
+			"en" : "Be too self-respecting to lavish the love of the whole heart, soul, and strength, where such a gift is not wanted and would be despised.", 
+			"ru" : "Уважай себя настолько, чтобы не отдавать всех сил души и сердца тому, кому они не нужны и в ком это вызвало бы только пренебрежение."
+		},
+		"source" : {
+			"en" : "Jane Eyre",
+			"ru" : "Джейн Эйр"
+		}
 	},
 	{
-		"quote" : "Truth comes out in wine", 
-		"source" : "Pliny the Elder"
+		"quote" : {
+			"en" : "The whole problem with the world is that fools and fanatics are always so certain of themselves, and wiser people so full of doubts.", 
+			"ru" : "Проблема этого мира в том, что глупцы и фанатики слишком уверены в себе, а умные люди полны сомнений."
+		},
+		"source" : {
+			"en" : "Bertrand Russell",
+			"ru" : "Бертран Рассел"
+		}
 	},
 	{
-		"quote" : "Everything in the universe is within you. Ask all from yourself", 
-		"source" : "Rumi"
+		"quote" : {
+			"en" : "Do not pity the dead, Harry. Pity the living and above all, those who live without love.", 
+			"ru" : "Не жалей умерших. Жалей живых, и в особенности тех, кто живет без любви."
+		},
+		"source" : {
+			"en" : "Albus Dumbledore",
+			"ru" : "Альбус Дамблдор"
+		}
 	},
 	{
-		"quote" : "When I get a little money I buy books; and if any is left I buy food and clothes", 
-		"source" : "Desiderius Erasmus"
+		"quote" : {
+			"en" : "I do not fear death. I had been dead for billions and billions of years before I was born, and had not suffered the slightest inconvenience from it.", 
+			"ru" : "Я не боюсь исчезнуть. Прежде, чем я родился, меня не было миллиарды и миллиарды лет, и я нисколько от этого не страдал."
+		},
+		"source" : {
+			"en" : "Mark Twain",
+			"ru" : "Марк Твен"
+		}
 	}
 ]
