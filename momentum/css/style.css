@@ -7,6 +7,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition: all 1s;
 }
 
 body {
@@ -28,10 +29,17 @@ body {
   height: 30vh;
   min-height: 220px;  
   padding: 20px;
+  
 }
 
 .player {
   width: auto;
+}
+
+.active{
+  position: relative;
+  opacity: 1;
+  left: -3000px;
 }
 
 .timeline {
@@ -430,7 +438,19 @@ body {
   background-size: 25px 25px;
   background: url('../assets/svg/setting.svg') no-repeat;
 }
+.down {
+  margin-top: 200px;
+  display: flex;
+  flex-direction: row;
+}
 
+.down :nth-child(1) {
+  width: 35px;
+  height: 35px;
+}
+.year{
+  margin-top: 80px;
+}
 .change-quote {
   margin-bottom: 30px;
   background-image: url("../assets/svg/reload.svg");  
