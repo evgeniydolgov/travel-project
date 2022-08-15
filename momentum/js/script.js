@@ -1,6 +1,5 @@
 const time = document.querySelector('.time');
 const dateElement = document.querySelector('.date');
-const dayOfWeek = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const userGreeting = document.querySelector('.greeting');
 const name = document.querySelector('.name');
 const body = document.querySelector('body');
@@ -21,21 +20,35 @@ const timeSong = document.querySelector('.time_song');
 
 let hash = window.location.hash;
 hash = hash.substr(1);
-console.log(hash);
-if (hash != 'ru' && hash != 'en') {hash = 'en'}
+if (hash != 'ru' && hash != 'en') {hash = 'en'};
+
+let numberOfPicter;
+if (localStorage.getItem("numberOfPicter")){
+    numberOfPicter = localStorage.getItem("numberOfPicter");
+}
 
 prevButton.addEventListener('click', function getSlideNext() {
+    if (numberOfPicter === '1') {
+        getLinkToImage();
+    } else if (numberOfPicter === '2') {
+        getLinkToImage2();
+    }else {
     randomNum --;
     if (randomNum < 1) randomNum = '20';
     randomNum = randomNum.toString().padStart(2,0);
-    setBg();
+    setBg();}
 });
 
 nextButton.addEventListener('click', function getSlideNext() {
+    if (numberOfPicter === '1') {
+        getLinkToImage();
+    } else if (numberOfPicter === '2') {
+        getLinkToImage2();
+    }else {
     randomNum ++;
     if (randomNum > 20) randomNum = '01';
     randomNum = randomNum.toString().padStart(2,0);
-    setBg();
+    setBg();}
 });
 
 function showTime () {
@@ -52,8 +65,8 @@ function showDate () {
     const dateDay = new Date();
     const day = dateDay.getDay();
     const options = { month: 'long', day: 'numeric'};
-    const currentDate = dateDay.toLocaleDateString('en-US', options);
-    return dateElement.textContent = dayOfWeek[day] + ', ' + currentDate;
+    const currentDate = dateDay.toLocaleDateString(hash, options);
+    return dateElement.textContent = dayOfWeek[hash][day] + ', ' + currentDate;
 }
 
 function getTimeOfDay() {
@@ -61,20 +74,21 @@ function getTimeOfDay() {
     const hours = date.getHours();
     let greeting;
     if (hours >= 0 && hours < 6) {
-        greeting = 'Good night';
+        greeting = greetingLang[hash][0];
     } else if (hours >= 6 && hours < 12) {
-        greeting = 'Good morning';
+        greeting = greetingLang[hash][1];
     } else if (hours >= 12 && hours < 18) {
-        greeting = 'Good afternoon';
+        greeting = greetingLang[hash][2];
     }else {
-        greeting = 'Good evening';
+        greeting = greetingLang[hash][3];
     }
     return greeting, userGreeting.textContent = greeting;
 }
 
 function setLocalStorage() {
     localStorage.setItem('name', name.value);
-  }
+    }
+
 window.addEventListener('beforeunload', setLocalStorage);
 
 function getLocalStorage() {
@@ -88,17 +102,17 @@ window.addEventListener('load', getLocalStorage);
 function getRandomNum(x){
     return x;
 }
-
+let greeting = getTimeOfDay();
 function setBg(){
     let z;
     let x = randomNum;
     let y;
-    let greeting = getTimeOfDay();
-    if (greeting === 'Good night') {
+
+    if (greeting === greetingLang[hash][0]) {
         y = 'night';
-    } else if (greeting === 'Good morning') {
+    } else if (greeting === greetingLang[hash][1]) {
         y = 'morning';
-    } else if (greeting === 'Good afternoon') {
+    } else if (greeting === greetingLang[hash][2]) {
         y = 'afternoon';
     } else {
         y = 'evening'
@@ -109,26 +123,7 @@ function setBg(){
     return body.style.backgroundImage =`url('https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${y}/${x}.jpg')`
 };
 }
-setBg();
-let temperatureOfCity = 'Minsk';
-async function getWeather() {  
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${temperatureOfCity}&lang=en&appid=4c9f9712a3c43ff618f104e1c698e202&units=metric`;
-    const res = await fetch(url);
-    const data = await res.json(); 
-
-    weatherIcon.className = 'weather-icon owf';
-    weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-    temperature.textContent = `${Math.floor(data.main.temp)}°C`;
-    weatherDescription.textContent = data.weather[0].description;
-    wind.textContent = `Wind speed: ${Math.floor(data.wind.speed)} m/s`;
-    humidity.textContent = `Humidity: ${data.main.humidity} %`;
-  }
-  getWeather();
-  city.addEventListener('change',() => {
-    temperatureOfCity = city.value;
-    return  getWeather();
-});
 
 function setLocalStorageCity() {
     localStorage.setItem('city', city.value);
@@ -139,8 +134,41 @@ function getLocalStorageCity() {
     if(localStorage.getItem('city')) {
       city.value = localStorage.getItem('city');
     }
+    return city.value
   }
+
 window.addEventListener('load', getLocalStorageCity);
+city.value = localStorage.getItem('city')
+
+async function getWeather() { 
+    if (city.value === '') {
+        city.value = cityLang[hash][0];
+    }
+    try{
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${hash}&appid=4c9f9712a3c43ff618f104e1c698e202&units=metric`;
+    const res = await fetch(url);
+    const data = await res.json(); 
+    weatherIcon.className = 'weather-icon owf';
+    weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+    temperature.textContent = `${Math.floor(data.main.temp)}°C`;
+    weatherDescription.textContent = data.weather[0].description;
+    wind.textContent = `${weatherLang[hash][0]} ${Math.floor(data.wind.speed)} m/s`;
+    humidity.textContent = `${weatherLang[hash][1]} ${data.main.humidity} %`;
+    }  catch{
+        temperature.textContent = errLang[hash];
+        wind.textContent = ' ';
+        humidity.textContent = ' ';
+    }
+  }
+    getWeather();
+
+
+  getWeather();
+  city.addEventListener('change',() => {
+    city.value = city.value;
+    return  getWeather();
+});
+
 
 
 async function getQuotes(hash) {  
@@ -310,36 +338,6 @@ volumeIcon.addEventListener('click', function(){
     }
 })
 
-/*--------------------------------------------APi-images--------------------------------------------*/
-
-async function getLinkToImage() {
-    const url = 'https://api.unsplash.com/photos/random?query=morning&client_id=VoA_JV_f9kR61CeHI8qvq9mbkuKNaOhOiAnDATgKtEU';
-    const res = await fetch(url);
-    const data = await res.json();
-    console.log(data.urls.regular)
-    return [
-        body.style.backgroundImage = `url(${data.urls.regular})`,
-        body.style.backgroundRepeat = 'no-repeat',
-        body.style.backgroundSize = '100% 100%'
-    ];
-   }
-
-// getLinkToImage();
-
-
-async function getLinkToImage2 (){
-    const url = 'https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=4405beba23fb8050383e9cef97b67396&tags=nature&extras=url_l&format=json&nojsoncallback=1'
-    const res = await fetch (url);
-    const data = await res.json();
-    let x = data.photos.photo[Math.floor(Math.random() * (data.photos.photo.length - 1)) + 1].url_l;
-    return [
-        body.style.backgroundImage = `url(${x})`,
-        body.style.backgroundRepeat = 'no-repeat',
-        body.style.backgroundSize = '100% 100%'
-    ];
-}   
-
-// getLinkToImage2 ();
 
 /*--------------------------------------------------------------setting-menu----------------------------------------------------------*/
 
@@ -351,17 +349,47 @@ const type_button = document.querySelector('.start_menu li:nth-child(3)');
 const delete_button = document.querySelector('.start_menu li:nth-child(4)');
 const language_menu = document.querySelector('.language_menu');
 const languageRu = document.querySelector('.language_menu li:nth-child(1)');
-console.log(languageRu);
 const languageEn = document.querySelector('.language_menu li:nth-child(2)');
-console.log(languageEn);
 const languageMenuBack = document.querySelector('.language_menu li:nth-child(3)');
 const picter_menu = document.querySelector('.picter_menu');
 const picter_menuBack = document.querySelector('.picter_menu li:nth-child(4)');
 const type_menu = document.querySelector('.type_menu');
+const type_menuNature = document.querySelector('.type_menu li:nth-child(1)');
+const type_menuCity = document.querySelector('.type_menu li:nth-child(2)');
+const type_menuCar = document.querySelector('.type_menu li:nth-child(3)');
 const type_menuBack = document.querySelector('.type_menu li:nth-child(4)');
 const type_delete = document.querySelector('.type_delete');
+const delete_menuTime = document.querySelector('.type_delete li:nth-child(1)');
+const delete_menuGreeting = document.querySelector('.type_delete li:nth-child(2)');
+const delete_menuWeather = document.querySelector('.type_delete li:nth-child(3)');
+const delete_menuAdio = document.querySelector('.type_delete li:nth-child(4)');
+const delete_menuQuote = document.querySelector('.type_delete li:nth-child(5)');
+const delete_menuToDo = document.querySelector('.type_delete li:nth-child(6)');
 const delete_menuBack = document.querySelector('.type_delete li:nth-child(7)');
 let typeOfSetting = false;
+let picterSetting = '';
+picterSetting = localStorage.getItem('picter');
+if (picterSetting = ''){picterSetting = 'nature'};
+
+language_button.textContent = menuLang['Language'][hash];
+picter_button.textContent = menuLang["Picter"][hash];
+type_button.textContent = menuLang["Сonnection"][hash];
+delete_button.textContent = menuLang["Delete"][hash];
+languageMenuBack.textContent = backLng[hash];
+picter_menuBack.textContent = backLng[hash];
+type_menuBack.textContent = backLng[hash];
+delete_menuBack.textContent = backLng[hash];
+if (hash === 'ru'){
+    type_menuNature.textContent = 'Природа';
+    type_menuCity.textContent = 'Город';
+    type_menuCar.textContent = 'Машины';
+    delete_menuTime.textContent = "Время/Дата";
+    delete_menuGreeting.textContent = "Приветствие";
+    delete_menuWeather.textContent = "Погода";
+    delete_menuAdio.textContent = "Плеер";
+    delete_menuQuote.textContent = "Цитаты";
+}
+
 
 setting.addEventListener('click', function () {
     if (!typeOfSetting) {
@@ -431,10 +459,123 @@ function changeEnLanguage () {
 languageRu.addEventListener('click', changeRuLanguage);
 languageEn.addEventListener('click', changeEnLanguage);
 
-function changeLanguage () {
-    let hash = window.location.hash;
-    hash = hash.substr(1);
-    console.log(hash);
-    return hash;
+/*------------------------------------------------------DELETE-Object------------------------------------------------------------*/
+
+const player = document.querySelector('.player');
+const weather = document.querySelector('.weather')
+const quoteBlock = document.querySelector('.quote-block')
+
+function isDeleteObject(element) {
+    element.classList.toggle('active');
 }
-changeLanguage();
+
+function memoryAboutUser(element) { // доделать запоминание настроек пользователя в local storage
+    if (localStorage.getItem('isClick')){
+        element.classList.add('active');
+        localStorage.removeItem('isClick')
+    };
+}
+
+delete_menuAdio.addEventListener('click', () => {isDeleteObject(player)});
+delete_menuTime.addEventListener('click', () => {isDeleteObject(time)});
+delete_menuTime.addEventListener('click', () => {isDeleteObject(dateElement)});
+delete_menuGreeting.addEventListener('click', () => {isDeleteObject(userGreeting)});
+delete_menuGreeting.addEventListener('click', () => {isDeleteObject(name)});
+delete_menuWeather.addEventListener('click', () => {isDeleteObject(weather)});
+delete_menuQuote.addEventListener('click', () => {isDeleteObject(quoteBlock)});
+
+/*--------------------------------------------APi-images--------------------------------------------*/
+
+const picter_menuGit = document.querySelector('.picter_menu li:nth-child(1)');
+const picter_menuUnsplash = document.querySelector('.picter_menu li:nth-child(2)');
+const picter_menuFlickr = document.querySelector('.picter_menu li:nth-child(3)');
+
+picter_menuGit.addEventListener("click", function () {
+    localStorage.setItem("numberOfPicter", 0)
+    numberOfPicter = "0";
+    picterChouse();
+});
+
+picter_menuUnsplash.addEventListener("click", function () {
+    localStorage.setItem("numberOfPicter", 1)
+    numberOfPicter = "1";
+    picterChouse();
+});
+
+picter_menuFlickr.addEventListener("click", function () {
+    localStorage.setItem("numberOfPicter", 2)
+    numberOfPicter = "2";
+    picterChouse();
+});
+
+
+function picterChouse () {
+if (numberOfPicter === '1') {
+   return getLinkToImage();
+} else if (numberOfPicter === '2') {
+   return getLinkToImage2();
+} else {
+   return setBg();
+}}
+picterChouse();
+
+let typeOfPicter;
+
+
+   function typePicter(elem) {
+    localStorage.setItem('picter', elem)
+    picterSetting = elem;
+    if (numberOfPicter === '1') {
+        getLinkToImage();
+    } else if (numberOfPicter === '2') {
+        getLinkToImage2();
+    }
+   };
+
+   type_menuNature.addEventListener('click', () => typePicter('nature'));
+   type_menuCity.addEventListener('click', () => typePicter('city') );
+   type_menuCar.addEventListener('click', () => typePicter('car') );
+
+
+async function getLinkToImage() {    
+    let y;
+    if (greeting === greetingLang[hash][0]) {
+        y = 'night';
+    } else if (greeting === greetingLang[hash][1]) {
+        y = 'morning';
+    } else if (greeting === greetingLang[hash][2]) {
+        y = 'day';
+    } else {
+        y = 'evening'
+    }
+    const url = `https://api.unsplash.com/photos/random?query=${picterSetting},${y}&client_id=VoA_JV_f9kR61CeHI8qvq9mbkuKNaOhOiAnDATgKtEU`;
+    const res = await fetch(url);
+    const data = await res.json();
+    return [
+        body.style.backgroundImage = `url(${data.urls.regular})`,
+        body.style.backgroundRepeat = 'no-repeat',
+        body.style.backgroundSize = '100% 100%'
+    ];
+   }
+
+async function getLinkToImage2 (){
+    let y;
+    if (greeting === greetingLang[hash][0]) {
+        y = 'night';
+    } else if (greeting === greetingLang[hash][1]) {
+        y = 'morning';
+    } else if (greeting === greetingLang[hash][2]) {
+        y = 'day';
+    } else {
+        y = 'evening'
+    }
+    const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=4405beba23fb8050383e9cef97b67396&tags=${picterSetting},${y}&extras=url_l&format=json&nojsoncallback=1`
+    const res = await fetch (url);
+    const data = await res.json();
+    let x = data.photos.photo[Math.floor(Math.random() * (data.photos.photo.length - 1)) + 1].url_l;
+    return [
+        body.style.backgroundImage = `url(${x})`,
+        body.style.backgroundRepeat = 'no-repeat',
+        body.style.backgroundSize = '100% 100%'
+    ];
+}   
