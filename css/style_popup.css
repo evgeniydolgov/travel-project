@@ -1,0 +1,244 @@
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.8s ease;
+}
+.popup.open {
+    opacity: 1;
+    visibility:visible;
+}
+.popap__body {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.popup__content {
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 660px;
+    width: 650px;
+    background: linear-gradient(177.09deg, #FFFFFF 6.15%, #0D606F 202.69%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+}
+.popup__content h2{
+    margin-top: 25px;
+    font-family: 'Aleo';
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    color: #0D606F;
+}
+.facebook_popup{
+    margin-top: 30px;
+    width: 86%;
+    height: 8.2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: rgb(24, 119, 242);
+    border-radius: 10px;
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    }
+.facebook_popup img{
+    margin: 0 17px 0 0;
+}
+.google_class {
+    margin-top: 20px;
+    width: 86%;
+    height: 8.8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: #0D606F;
+}
+.google_class img{
+    margin: 0 17px 0 0;
+}
+.or_line{
+    margin-top: 30px;
+    width: 86%;
+    height: 3.3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Aleo';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgba(13, 96, 111, 0.5);
+}
+.f_line{
+    width: 100%;
+    border: 1px solid rgba(13, 96, 111, 0.5);
+}.s_line{
+    margin: 0;
+    width: 100%;
+    border:1px solid rgba(13, 96, 111, 0.5);
+}
+
+.or_line>:nth-child(2){
+    margin: 0 9px;
+}
+.popup-one__email{
+    width: 86%;
+    margin-top: 11px;
+    font-family: 'Aleo';
+    font-size: 16px;
+    line-height: 19px;
+    color: #0D606F;
+}
+.popup-one__email__input{
+    display: flex;
+    margin-top: 5px;
+    width: 86%;
+    height: 8.2%;
+}
+.popup-one__email__input input{
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 3px rgba(13, 96, 111, 0.08), inset 0px 2px 3px rgba(13, 96, 111, 0.16);
+    border-radius: 10px;
+    font-size: 22px;
+}
+.popup-one__password{
+    width: 86%;
+    margin-top: 20px;
+    font-family: 'Aleo';
+    font-size: 16px;
+    line-height: 19px;
+    color: #0D606F;
+}
+.popup-one__password__input{
+    display: flex;
+    margin-top: 5px;
+    width: 86%;
+    height: 8.2%;
+}
+.popup-one__password__input input{
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 3px rgba(13, 96, 111, 0.08), inset 0px 2px 3px rgba(13, 96, 111, 0.16);
+    border-radius: 10px;
+    font-size: 22px;
+    height: 100%;
+}
+.popup-one__sing{
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 86%;
+    height: 8.2%;
+    font-family: 'Red Hat Text';
+    font-size: 20px;
+    line-height: 26px;
+    color: #FFFFFF;
+    background: #0D606F;
+    box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+    border-radius: 10px;
+}
+.your__pass{
+    margin-top: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 86%;
+    font-family: 'Aleo';
+    font-weight: 900;
+    font-size: 15px;
+    line-height: 18px;
+    text-decoration-line: underline;
+    color: #0D606F;
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+}
+.popup-one__border{
+    margin-top: 25px;
+    width: 86%;
+    border: 1px solid rgba(13, 96, 111, 0.5);
+}
+.popup-one__reg{
+    margin-top: 20px;
+    font-family: 'Aleo';
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    color: rgba(13, 96, 111, 0.5);
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+}
+.popup-one__reg a{
+    margin-left: 2px;
+    font-family: 'Aleo';
+    font-weight:bolder;
+    font-size: 15px;
+    line-height: 18px;
+    text-decoration-line: underline;
+    color: #0D606F;
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+}
+/*------------------------------------------------------------*/
+
+.p_2 {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    z-index: 101;
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.8s ease;
+}
+.b_2 {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.c_2 {
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 436px;
+    width: 650px;
+    background: linear-gradient(177.09deg, #FFFFFF 6.15%, #0D606F 202.69%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+}
+.popup_two{
+    height: 54px;
+}
+.email_two{
+    margin-top: 28px;
+}
+.a_two{
+    margin-left: 10px;
+}
